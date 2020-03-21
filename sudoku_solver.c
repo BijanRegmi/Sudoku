@@ -84,10 +84,18 @@ void add_board(int (*board)[9])
     {
         for (int j=0;j<9;j++)
         {
+            A:
             show_board(board,i,j);
             printf("\n");
             printf("board[%d][%d] = ",i,j);
             scanf("%d",&board[i][j]);
+            if ((board[i][j]<0)||(board[i][j]>9))
+            {
+                board[i][j]=0;
+                printf("INVALID INNPUT ENTER AGAIN\n");
+                sleep(1);
+                goto A;
+            }
         }
     }
 }
